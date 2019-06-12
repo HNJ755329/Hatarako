@@ -1,0 +1,50 @@
+{% extends "base.html" %} 
+{% block title %} | {{ block.super }}{% endblock title %}
+{% block page_content %} {% load static %}
+
+<article class="container">
+    <section class="main">
+    
+        <div class = "main-top">
+        {{uuid_post.contents | linebreaksbr}}
+        </div>
+        
+        <div class ="name-top">
+        {{uuid_post.industory}}／
+        
+        {{uuid_post.career}}・
+        {{uuid_post.age}}
+        </div>
+        <div class = "date-top">{{uuid_post.created_on}}</div>
+    
+    </section>
+</article>
+<h3>あなたのはたらくことばをきかせて</h3>
+<form action="{% url 'hataraku_result' %}" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        {{ form.contents }}
+    </div>
+    <div class="form-group">
+        {{ form.industory }}
+    </div>
+    <div class="form-group">
+        {{ form.career }}
+    </div>
+    <div class="form-group">
+        {{ form.age }}
+    </div>
+    <button type="CREATE" class="btn btn-primary">Submit</button>
+</form>
+
+<h3>みんなのはたらくことば</h3>
+{% for post in posts %}
+<div>
+
+・<a href="{% url 'hataraku_uuid' post.id %}">
+{{post.contents}}■{{post.industory}}／{{post.career}}・{{post.age}}（{{post.created_on}}）
+</a>
+</div>
+{% endfor %}
+
+{% endblock %}
