@@ -19,7 +19,7 @@ services:
         - "3306:3306"
       environment:
         MYSQL_ROOT_PASSWORD: root
-        MYSQL_DATABASE: todoList
+        MYSQL_DATABASE: hatarakukotoba
         MYSQL_USER: user
         MYSQL_PASSWORD: password
         TZ: 'Asia/Tokyo'
@@ -35,5 +35,7 @@ services:
         - ./static:/static
       expose:
         - "8001"
+      ports:
+        - "8000:8000"
       depends_on:
         - db

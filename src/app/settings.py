@@ -27,7 +27,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'cns002m86p8w@nz$y-_&pm6th(3&2f!t5*+4-jbvzg(&1#kg!4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
+# DEBUG = False
+# STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
 
 ALLOWED_HOSTS = ['*']
 
@@ -42,6 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'hataraku',
+    'django_static_md5url',
+    'colorfield',
 ]
 
 MIDDLEWARE = [

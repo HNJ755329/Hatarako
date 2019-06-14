@@ -1,7 +1,16 @@
 from django import forms
 from .models import Post
+from .models import Color
+from colorfield.fields import ColorField
 
 class PostForm(forms.Form):
+    contents = forms.CharField(widget=forms.Textarea(
+        attrs={
+            "class": "form-control",
+            "placeholder": "あなたのはたらくことば"
+        })
+    )
+
     industory = forms.CharField(
         max_length=50,
         widget=forms.TextInput(attrs={
@@ -26,9 +35,6 @@ class PostForm(forms.Form):
         })
     )
 
-    contents = forms.CharField(widget=forms.Textarea(
-        attrs={
-            "class": "form-control",
-            "placeholder": "あなたのはたらくことば"
-        })
-    )
+
+    #color = forms.CharField(widget=ColorPickerWidget)
+    #color = forms.ModelChoiceField(queryset=Color.objects.all())

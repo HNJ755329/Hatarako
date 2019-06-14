@@ -1,4 +1,6 @@
 {% load static %}
+{% load md5url %}
+
 <html>
 <head>
     <meta charset="utf-8">
@@ -6,8 +8,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>{% block title %}はたらくことばメーカー{% endblock title %}</title>
-    <link href="{% static 'hataraku/css/index.css' %}" rel="stylesheet">
-    <link href="{% static 'hataraku/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href= "{% md5url 'hataraku/css/index.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% md5url 'hataraku/vendor/bootstrap/css/bootstrap.css' %}" rel="stylesheet" type="text/css">
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-141589790-2"></script>
@@ -19,6 +21,24 @@
       gtag('config', 'UA-141589790-2');
     </script>
 
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  
+  <script type="text/javascript">
+    $(function(){
+
+      $("#color-dialog").on("change", function(){
+        $('#label1').css("color", $('#color-dialog').val())
+          $('#area1').text($('#color-dialog').val());
+      });
+
+      $("#color-list").on("change", function(){
+        $('#label2').css("color", $('#color-list').val())
+          $('#area2').text($('#color-list').val());
+      });
+
+    });
+  </script>
+
 </head>
 <body>
   <!-- Navigation -->
@@ -29,6 +49,7 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarResponsive">
+            {% if False %}
             <ul class="navbar-nav ml-auto">
               <li class="nav-item active">
                 <a class="nav-link" href="#">Home
@@ -45,6 +66,7 @@
                 <a class="nav-link" href="#">Contact</a>
               </li>
             </ul>
+            {% endif %}
           </div>
         </div>
       </nav>

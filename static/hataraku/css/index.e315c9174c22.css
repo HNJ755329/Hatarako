@@ -1,0 +1,64 @@
+body{
+    font-family: 游ゴシック体, 'Yu Gothic';
+}
+
+.main {
+    position: relative;
+    width: 400px;
+    margin-right:auto;
+    margin-left:auto;
+    border-style: solid;
+    border-width:1.5em;
+    border-color:navy;
+    height: 600px;
+}
+
+.title-top {
+    position: absolute;
+    left: 10%;
+    top : 100px;
+    transform: translateX(-100px);
+    font-size: 1.2em;
+      font-weight: bold;
+      line-height: 40px;
+      letter-spacing: 3px;
+    -ms-writing-mode: tb-rl;
+    writing-mode: vertical-rl;
+    color: navy;
+  }
+
+.main-top {
+    position: absolute;
+    left: 50%;
+    top : 100px;
+    transform: translateX(-50%);
+    font-size: 1.2em;
+      font-weight: bold;
+      line-height: 40px;
+      letter-spacing: 3px;
+    -ms-writing-mode: tb-rl;
+    writing-mode: vertical-rl;
+    color: navy;
+  }
+
+.name-top{
+    position: absolute;
+    left: 10%;
+    top : 300px;
+    transform: translateX(-50%);
+    font-size: 0.8em;
+    -ms-writing-mode: tb-rl;
+    writing-mode: vertical-rl;
+    color: navy;
+}
+
+.date-top{
+    position: absolute;
+    left: 50%;
+    top : 600px;
+    transform: translateX(-50%);
+    font-size: 0.5em;
+    color: navy;
+
+}
+

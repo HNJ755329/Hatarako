@@ -1,5 +1,6 @@
 from django.db import models
 import uuid
+from colorfield.fields import ColorField
 
 # Create your models here.
 
@@ -10,3 +11,16 @@ class Post(models.Model):
     industory = models.CharField(max_length=30)
     career = models.CharField(max_length=30)
     age = models.CharField(max_length=20)
+    color = models.CharField(max_length=7)
+    #color = ColorField(default='#FF0000')
+    #color = models.ForeignKey('Color', on_delete=models.PROTECT)
+
+    def __str__(self):
+        return self.contents + "■" + self.industory + "／" + self.career + "・" + self.age + " colorindex:" + str(self.color)
+
+
+class Color(models.Model):
+    web = models.CharField(max_length = 7)
+
+    def __str__(self):
+        return self.web

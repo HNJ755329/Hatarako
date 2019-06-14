@@ -1,16 +1,34 @@
-body{
-    font-family: 游ゴシック体, 'Yu Gothic'
+article{
+  margin-bottom:50px;
 }
+/*
+.subtitle {
+
+}*/
 
 .main {
     position: relative;
     width: 400px;
-    margin: 50px;
+    margin: 50px auto;
     border-style: solid;
     border-width:1.5em;
     border-color:navy;
     height: 600px;
 }
+
+.title-top {
+    position: absolute;
+    left: 10%;
+    top : 0px;
+    transform: translateX(-100px);
+    font-size: 1.2em;
+      font-weight: bold;
+      line-height: 40px;
+      letter-spacing: 3px;
+    -ms-writing-mode: tb-rl;
+    writing-mode: vertical-rl;
+    color: navy;
+  }
 
 .main-top {
     position: absolute;
@@ -40,10 +58,24 @@ body{
 .date-top{
     position: absolute;
     left: 50%;
-    top : 600px;
+    top : 590px;
     transform: translateX(-50%);
-    font-size: 0.5em;
+    font-size: 0.8em;
     color: navy;
 
 }
 
+.sns{
+  margin: 0 auto;
+}
+
+.ul-post{
+  list-style-type: none;
+  padding: 0px;
+}
+
+.li-post{
+  border: 0.3em skyblue solid;
+  margin: 0.5em;
+  padding: 0.5em;
+}
