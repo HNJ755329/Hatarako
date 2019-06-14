@@ -5,23 +5,12 @@ from .forms import PostForm
 import datetime
 
 # Create your views here.
+"""
 def hataraku_index(request):
     posts = Post.objects.all().order_by('-created_on')[:10]
     uuid_post = Post.objects.all().order_by('-created_on').first()
     form = PostForm()
     date = datetime.datetime.now()
-    """
-    if request.method == 'POST':
-        form = PostForm(request.POST)
-        if form.is_valid():
-            post = Post(
-                contents=form.cleaned_data["contents"],
-                industory=form.cleaned_data["industory"],
-                career=form.cleaned_data["career"],
-                age=form.cleaned_data["age"],
-                color=form.cleaned_data["color"],
-            )
-            post.save()"""
 
     context = {
         "uuid_post": uuid_post,
@@ -30,13 +19,18 @@ def hataraku_index(request):
         "date": date,
     }
     return render(request, "hataraku_index.html", context)
+"""
 
+def hataraku_index(request, uuid):
+    try:
+        uuid_post = Post.objects.get(pk=uuid)
+    except:
+        uuid_post = Post.objects.all().order_by('-created_on').first()
 
-def hataraku_uuid(request, uuid):
     posts = Post.objects.all().order_by('-created_on')[:10]
-    uuid_post = Post.objects.get(pk=uuid)
     form = PostForm()
     date = datetime.datetime.now()
+
     """
     if request.method == 'POST':
         form = PostForm(request.POST)

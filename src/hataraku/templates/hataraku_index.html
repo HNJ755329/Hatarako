@@ -70,7 +70,7 @@
 <ul class="ul-post">
 {% for post in posts %}
 <li class="li-post" style="border-color:{{post.color}};">
-    <a href="{% url 'hataraku_uuid' post.id %}">{{post.contents}}■{{post.industory}}／{{post.career}}・{{post.age}}（{{post.created_on}}）</a>
+    <a href="{% url 'hataraku_index' post.id %}">{{post.contents}}■{{post.industory}}／{{post.career}}・{{post.age}}（{{post.created_on}}）</a>
 </li>
 {% endfor %}
 </ul>
