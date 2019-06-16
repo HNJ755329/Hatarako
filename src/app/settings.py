@@ -62,7 +62,7 @@ ROOT_URLCONF = 'app.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ["hataraku/templates/"],
+        'DIRS': [os.path.join('hataraku', 'templates'), ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -90,6 +90,7 @@ DATABASES = {
         'PASSWORD': 'password',
         'HOST': 'db',
         'PORT': '3306',
+        # テスト用にこの行を追加
         'TEST': {
             'NAME': 'test_hatarakukotoba',
         },
