@@ -41,26 +41,27 @@
     <div class="form-group">
         {{ form.age }}
     </div>
-
-    <input id="color-list" type="color" name="color" value="#333333" list="colors">
-    <datalist id="colors">
-        <option value="#E60012"></option>
-        <option value="#F39800"></option>
-        <option value="#FFF100"></option>
-        <option value="#8FC31F"></option>
-        <option value="#009944"></option>
-        <option value="#009E96"></option>
-        <option value="#00A0E9"></option>
-        <option value="#0068B7"></option>
-        <option value="#1D2088"></option>
-        <option value="#920783"></option>
-        <option value="#E4007F"></option>
-        <option value="#E5004F"></option>
-        <option value="#C0C0C0"></option>
-        <option value="#696969"></option>
-        <option value="#000000"></option>
-    </datalist>
-    <button type="CREATE" class="btn btn-primary">そうしん</button>
+    <div class="form-group">
+        {{ form.color }}
+        <datalist id="colors">
+            <option value="#E60012"></option>
+            <option value="#F39800"></option>
+            <option value="#FFF100"></option>
+            <option value="#8FC31F"></option>
+            <option value="#009944"></option>
+            <option value="#009E96"></option>
+            <option value="#00A0E9"></option>
+            <option value="#0068B7"></option>
+            <option value="#1D2088"></option>
+            <option value="#920783"></option>
+            <option value="#E4007F"></option>
+            <option value="#E5004F"></option>
+            <option value="#C0C0C0"></option>
+            <option value="#696969"></option>
+            <option value="#000000"></option>
+        </datalist>
+    </div>
+    <button type="submit" class="btn btn-primary">そうしん</button>
 </form>
 </article>
 

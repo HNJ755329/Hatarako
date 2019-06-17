@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'hataraku',
     'django_static_md5url',
     'colorfield',
+    'django_webtest',
 ]
 
 MIDDLEWARE = [

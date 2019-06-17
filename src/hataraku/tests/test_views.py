@@ -1,15 +1,41 @@
 from django.test import TestCase
+from django.test import RequestFactory
 from django.views.generic.base import TemplateView
 from ..models import Post
+from ..views import *
 
 # Create your tests here.
-class HomeView(TemplateView):
-    template_name = 'hataraku_index.html'
-
 class ViewPostCreateTests(TestCase):
     """Test whether our post entries show up on the page"""
     def setUp(self):
         pass
+
+    def test_result_nondata(self):
+        response = self.client.get('/result')
+        self.assertEqual(response.status_code, 200)
+
+    def test_result_not_Valid_data(self):     
+        data = {
+            'contents': 'はたらく言葉',
+            'industory': '業界',
+        }
+        factory = RequestFactory()
+        request = factory.post('/result', data)
+        response = hataraku_result(request)
+        self.assertEqual(response.status_code, 200)
+
+    def test_result_Valid_data(self):     
+        data = {
+            'contents': 'はたらく言葉',
+            'industory': '業界',
+            'career' : "職種",
+            'age' : "年齢",
+            'color' : "#00FF00",
+        }
+        factory = RequestFactory()
+        request = factory.post('/result', data=data)
+        response = hataraku_result(request)
+        self.assertEqual(response.status_code, 200)
 
     def test_one_post(self):
         Post.objects.create(contents="はたらく言葉", industory="業界", career="職種", age="年齢", color="#000000")
@@ -48,13 +74,3 @@ class ViewPostCreateTests(TestCase):
         # 0番目に移動すると内容が見れる。
         response = self.client.get(post_list[0].get_absolute_url())
         self.assertContains(response, "contents_" + str(0))
-
-class ViewsTest(TestCase):
-    def test_hataraku_index(self):
-        print('views/test_hataraku_index!')
-
-    def test_hataraku_uuid(self):
-        print('views/test_hataraku_uuid!')
-
-    def test_hataraku_result(self):
-        print('views/test_hataraku_result!')

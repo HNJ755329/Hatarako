@@ -22,7 +22,6 @@ class Post(models.Model):
     class Meta:
         verbose_name_plural = "はたらくことば投稿"
 
-    #
     def get_absolute_url(self):
         return reverse('hataraku_uuid', kwargs={'uuid': self.id})
 
