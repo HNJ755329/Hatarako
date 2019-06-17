@@ -1,6 +1,7 @@
 from django.db import models
 import uuid
 from colorfield.fields import ColorField
+from django.urls import reverse
 
 # Create your models here.
 
@@ -17,6 +18,13 @@ class Post(models.Model):
 
     def __str__(self):
         return self.contents + "■" + self.industory + "／" + self.career + "・" + self.age + " colorindex:" + str(self.color)
+    
+    class Meta:
+        verbose_name_plural = "はたらくことば投稿"
+
+    def get_absolute_url(self):
+        return reverse('hataraku_uuid', kwargs={'uuid': self.id})
+
 
 
 class Color(models.Model):
@@ -24,3 +32,6 @@ class Color(models.Model):
 
     def __str__(self):
         return self.web
+
+    class Meta:
+        verbose_name_plural = "カラー設定"

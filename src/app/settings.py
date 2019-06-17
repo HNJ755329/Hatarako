@@ -28,7 +28,6 @@ SECRET_KEY = 'cns002m86p8w@nz$y-_&pm6th(3&2f!t5*+4-jbvzg(&1#kg!4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-# DEBUG = False
 # STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
 
 ALLOWED_HOSTS = ['*']
@@ -46,6 +45,7 @@ INSTALLED_APPS = [
     'hataraku',
     'django_static_md5url',
     'colorfield',
+    'django_webtest',
 ]
 
 MIDDLEWARE = [
@@ -63,7 +63,7 @@ ROOT_URLCONF = 'app.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ["hataraku/templates/"],
+        'DIRS': [os.path.join('hataraku', 'templates'), ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -91,6 +91,10 @@ DATABASES = {
         'PASSWORD': 'password',
         'HOST': 'db',
         'PORT': '3306',
+        # テスト用にこの行を追加
+        'TEST': {
+            'NAME': 'test_hatarakukotoba',
+        },
     }
 }
 
